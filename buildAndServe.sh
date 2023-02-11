@@ -47,11 +47,11 @@ if $build ; then
          -v "$(pwd)":/opt/maven \
          -w /opt/maven \
          maven:3.6.0-jdk-11-slim\
-         mvn clean package
+         mvn clean package -DskipTests
 fi
 
 #Sirve el proyecto
 if $serve ; then
   echo "Sirve"
-  docker-compose up
+  docker-compose up  --build
 fi
