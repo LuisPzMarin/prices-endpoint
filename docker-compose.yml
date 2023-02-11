@@ -1,0 +1,10 @@
+version: '3'
+services:
+  prices-api:
+    container_name: prices-api-container
+    image: prices-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:8080
