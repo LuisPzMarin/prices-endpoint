@@ -5,7 +5,8 @@ import com.regegal.pricesapi.repository.PriceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -25,7 +26,6 @@ public class PriceServiceImp implements PriceService{
 
     @Override
     public Price modifyPrice(Long id, Price newPrice) {
-        Price originalPrice = priceRepository.findById(id).get();
         return priceRepository.save(newPrice);
     }
 
@@ -37,5 +37,10 @@ public class PriceServiceImp implements PriceService{
         return false;
         }
         return true;
+    }
+
+    @Override
+    public List<Price> consultPrice(LocalDateTime date, Long productId, Long brandId){
+        return priceRepository.consultPrice(date, productId, brandId);
     }
 }

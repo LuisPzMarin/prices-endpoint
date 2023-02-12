@@ -1,7 +1,6 @@
 package com.regegal.pricesapi.model;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -11,11 +10,11 @@ public class Price {
     @Column(nullable = false)
     private Long brandId;
 
-    @Column(nullable = false)
-    private Date startDate;
+    @Column(nullable = false,columnDefinition = "TIMESTAMP")
+    private LocalDateTime startDate;
 
-    @Column(nullable = false)
-    private Date endDate;
+    @Column(nullable = false,columnDefinition = "TIMESTAMP")
+    private LocalDateTime endDate;
 
     @Column(nullable = false)
     private int priceList;
@@ -37,7 +36,7 @@ public class Price {
     public Price() {
     }
 
-    public Price(Long brandId, Date startDate, Date endDate, int priceList, Long productId, int priority, Double price, Currency curr, Long id) {
+    public Price(Long brandId, LocalDateTime startDate, LocalDateTime endDate, int priceList, Long productId, int priority, Double price, Currency curr, Long id) {
         this.brandId = brandId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -61,11 +60,11 @@ public class Price {
         return this.brandId;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return this.startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return this.endDate;
     }
 
@@ -93,11 +92,11 @@ public class Price {
         this.brandId = brandId;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
