@@ -53,5 +53,6 @@ fi
 #Sirve el proyecto
 if $serve ; then
   echo "Sirve"
+  sudo docker image rm prices-api --force
   docker-compose up  --build
 fi
