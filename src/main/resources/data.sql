@@ -1,7 +1,7 @@
 INSERT INTO PRICE (
     brand_id,
-    end_date,
     start_date,
+    end_date,
     price_list,
     product_id,
     priority,
@@ -9,8 +9,8 @@ INSERT INTO PRICE (
     curr)
 VALUES(
         1,
-        parsedatetime('2020-06-14-00.00.00', 'yyyy-mm-dd-hh.mm.ss'),
-        parsedatetime('2020-12-31-23.59.59', 'yyyy-mm-dd-hh.mm.ss') ,
+        parsedatetime('2020-06-14-00.00.00', 'yyyy-MM-dd-HH.mm.ss'),
+        parsedatetime('2020-12-31-23.59.59', 'yyyy-MM-dd-HH.mm.ss') ,
         1,
         35455,
         0,
@@ -19,8 +19,8 @@ VALUES(
     ),
     (
         1,
-        parsedatetime('2020-06-14-15.00.00', 'yyyy-mm-dd-hh.mm.ss'),
-        parsedatetime('2020-06-14-18.30.00', 'yyyy-mm-dd-hh.mm.ss') ,
+        parsedatetime('2020-06-14-15.00.00', 'yyyy-MM-dd-HH.mm.ss'),
+        parsedatetime('2020-06-14-18.30.00', 'yyyy-MM-dd-HH.mm.ss') ,
         2,
         35455,
         1,
@@ -29,8 +29,8 @@ VALUES(
     ),
     (
         1,
-        parsedatetime('2020-06-14-15.00.00', 'yyyy-mm-dd-hh.mm.ss'),
-        parsedatetime('2020-06-15-11.00.00 ', 'yyyy-mm-dd-hh.mm.ss') ,
+        parsedatetime('2020-06-14-15.00.00', 'yyyy-MM-dd-HH.mm.ss'),
+        parsedatetime('2020-06-15-11.00.00 ', 'yyyy-MM-dd-HH.mm.ss') ,
         3,
         35455,
         1,
@@ -39,8 +39,8 @@ VALUES(
     ),
     (
         1,
-        parsedatetime('2020-06-15-16.00.00', 'yyyy-mm-dd-hh.mm.ss'),
-        parsedatetime('2020-12-31-23.59.59', 'yyyy-mm-dd-hh.mm.ss') ,
+        parsedatetime('2020-06-15-16.00.00', 'yyyy-MM-dd-HH.mm.ss'),
+        parsedatetime('2020-12-31-23.59.59', 'yyyy-MM-dd-HH.mm.ss') ,
         4,
         35455,
         1,

@@ -21,7 +21,7 @@ public class Price {
     private int priceList;
 
     @Column(nullable = false)
-    private int productId;
+    private Long productId;
 
 
     private int priority;
@@ -37,7 +37,7 @@ public class Price {
     public Price() {
     }
 
-    public Price(Long brandId, Date startDate, Date endDate, int priceList, int productId, int priority, Double price, Currency curr, Long id) {
+    public Price(Long brandId, Date startDate, Date endDate, int priceList, Long productId, int priority, Double price, Currency curr, Long id) {
         this.brandId = brandId;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -73,7 +73,7 @@ public class Price {
         return this.priceList;
     }
 
-    public int getProductId() {
+    public Long getProductId() {
         return this.productId;
     }
 
@@ -105,7 +105,7 @@ public class Price {
         this.priceList = priceList;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -154,26 +154,7 @@ public class Price {
         return other instanceof Price;
     }
 
-    public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        final Object $brandId = this.getBrandId();
-        result = result * PRIME + ($brandId == null ? 43 : $brandId.hashCode());
-        final Object $startDate = this.getStartDate();
-        result = result * PRIME + ($startDate == null ? 43 : $startDate.hashCode());
-        final Object $endDate = this.getEndDate();
-        result = result * PRIME + ($endDate == null ? 43 : $endDate.hashCode());
-        result = result * PRIME + this.getPriceList();
-        result = result * PRIME + this.getProductId();
-        result = result * PRIME + this.getPriority();
-        final Object $price = this.getPrice();
-        result = result * PRIME + ($price == null ? 43 : $price.hashCode());
-        final Currency $curr = this.getCurr();
-        result = result * PRIME + ($curr == null ? 43 : $curr.hashCode());
-        final Object $id = this.getId();
-        result = result * PRIME + ($id == null ? 43 : $id.hashCode());
-        return result;
-    }
+
 
     public String toString() {
         return "Price(brandId=" + this.getBrandId() + ", startDate=" + this.getStartDate() + ", endDate=" + this.getEndDate() + ", priceList=" + this.getPriceList() + ", productId=" + this.getProductId() + ", priority=" + this.getPriority() + ", price=" + this.getPrice() + ", curr=" + this.getCurr() + ", id=" + this.getId() + ")";
