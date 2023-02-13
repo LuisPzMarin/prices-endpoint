@@ -1,11 +1,11 @@
 package com.regegal.pricesapi.controller.request;
 
-public class rateRequest {
+public class RateRequest {
     private String date;
     private Long productId;
     private Long brandId;
 
-    public rateRequest(String date, Long productId, Long brandId) {
+    public RateRequest(String date, Long productId, Long brandId) {
         this.date = date;
         this.productId = productId;
         this.brandId = brandId;

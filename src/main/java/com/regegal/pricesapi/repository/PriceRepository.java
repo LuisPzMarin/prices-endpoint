@@ -11,9 +11,17 @@ import java.util.*;
 public interface PriceRepository extends JpaRepository <Price, Long> {
 
     /** Query que devuelve los datos filtrados y ordenados por prioridad **/
-    @Query("SELECT t FROM Price t WHERE t.startDate <= :date AND t.endDate >= :date  " +
-            "AND t.brandId = :brandId  AND t.productId = :productId ORDER BY t.priority DESC")
-    List<Price> consultPrice(LocalDateTime date, Long productId, Long brandId );
+    @Query("SELECT p FROM Price p " +
+            "JOIN p.brand b " +
+            "JOIN p.product pr " +
+            "WHERE b.id = :brandId " +
+            "AND pr.id = :productId " +
+            "AND (:date BETWEEN p.startDate AND p.endDate)" +
+            "ORDER BY p.priority DESC")
+    List<Price> findByBrandAndProductAndDates(
+            LocalDateTime date,
+            Long productId,
+            Long brandId);
 
 
 

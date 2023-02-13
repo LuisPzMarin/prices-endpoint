@@ -1,3 +1,11 @@
+
+
+/** Inserción de los valores generados para la consistencia del ejercicio**/
+INSERT INTO BRAND (id, name) VALUES (1, 'ZARA');
+INSERT INTO PRODUCT (id, name) VALUES (35455, 'Producto Test');
+
+
+/** Inserción de los valores otorgados en el ejercicio **/
 INSERT INTO PRICE (
     brand_id,
     start_date,

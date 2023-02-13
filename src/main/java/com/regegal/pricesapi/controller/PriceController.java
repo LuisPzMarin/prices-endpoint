@@ -1,6 +1,7 @@
 package com.regegal.pricesapi.controller;
-import com.regegal.pricesapi.controller.request.rateRequest;
-import com.regegal.pricesapi.controller.response.rateResponse;
+import com.regegal.pricesapi.controller.request.RateRequest;
+import com.regegal.pricesapi.controller.response.RateResponse;
+import com.regegal.pricesapi.controller.response.ErrorResponse;
 import com.regegal.pricesapi.model.Price;
 import com.regegal.pricesapi.service.PriceService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/prices")
 @RequiredArgsConstructor
-public class priceController {
+public class PriceController {
 
     private final PriceService priceService;
 
@@ -44,7 +45,7 @@ public class priceController {
     }
 
     @PostMapping("/rate")
-    public ResponseEntity findRate(@RequestBody rateRequest json) throws Exception {
+    public ResponseEntity findRate(@RequestBody RateRequest json) throws Exception {
 
         try {
             //Se parsea la fecha con el formato del enunciado
@@ -54,14 +55,15 @@ public class priceController {
 
             //Se revisa si la consulta no trajo resultados
             if(Lprice.isEmpty()){
-                return new ResponseEntity(HttpStatus.NOT_FOUND);
+                return new ResponseEntity(new ErrorResponse(HttpStatus.NOT_FOUND),HttpStatus.NOT_FOUND);
             }else{
-                Price rate = Lprice.remove(0);
-                return new ResponseEntity(new rateResponse(rate.getPrice(), rate.getBrandId(), rate.getProductId(),
-                        timestamp, rate.getEndDate(), rate.getPriceList()), HttpStatus.OK);
+                Price rPrice = Lprice.get(0);
+                return new ResponseEntity( new RateResponse(rPrice.getPrice(), rPrice.getBrand().getId(),
+                        rPrice.getProduct().getId(), rPrice.getStartDate(), timestamp, rPrice.getEndDate(),
+                        rPrice.getPriceList()), HttpStatus.OK);
             }
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new ErrorResponse(HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
         }
 
     }
