@@ -1,9 +1,9 @@
-package com.regegal.pricesapi.controller;
-import com.regegal.pricesapi.controller.request.RateRequest;
-import com.regegal.pricesapi.controller.response.RateResponse;
-import com.regegal.pricesapi.controller.response.ErrorResponse;
-import com.regegal.pricesapi.model.Price;
-import com.regegal.pricesapi.service.PriceService;
+package com.redegal.pricesapi.controller;
+import com.redegal.pricesapi.controller.request.RateRequest;
+import com.redegal.pricesapi.controller.response.ErrorResponse;
+import com.redegal.pricesapi.controller.response.RateResponse;
+import com.redegal.pricesapi.model.Price;
+import com.redegal.pricesapi.service.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +46,6 @@ public class PriceController {
 
     @PostMapping("/rate")
     public ResponseEntity findRate(@RequestBody RateRequest json) throws Exception {
-
         try {
             //Se parsea la fecha con el formato del enunciado
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH.mm.ss");
@@ -65,7 +64,6 @@ public class PriceController {
         } catch (Exception e) {
             return new ResponseEntity(new ErrorResponse(HttpStatus.BAD_REQUEST), HttpStatus.BAD_REQUEST);
         }
-
     }
 
 

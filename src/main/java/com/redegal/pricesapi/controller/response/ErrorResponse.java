@@ -1,4 +1,4 @@
-package com.regegal.pricesapi.controller.response;
+package com.redegal.pricesapi.controller.response;
 
 import org.springframework.http.HttpStatus;
 

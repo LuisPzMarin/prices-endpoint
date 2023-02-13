@@ -1,4 +1,4 @@
-package com.regegal.pricesapi.controller.response;
+package com.redegal.pricesapi.controller.response;
 
 import java.time.LocalDateTime;
 

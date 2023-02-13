@@ -1,4 +1,4 @@
-package com.regegal.pricesapi.controller.request;
+package com.redegal.pricesapi.controller.request;
 
 public class RateRequest {
     private String date;

@@ -1,4 +1,4 @@
-package com.regegal.pricesapi.model;
+package com.redegal.pricesapi.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

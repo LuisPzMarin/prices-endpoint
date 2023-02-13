@@ -1,6 +1,6 @@
-package com.regegal.pricesapi.repository;
+package com.redegal.pricesapi.repository;
 
-import com.regegal.pricesapi.model.Price;
+import com.redegal.pricesapi.model.Price;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

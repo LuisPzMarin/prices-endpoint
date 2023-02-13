@@ -1,11 +1,10 @@
-package com.regegal.pricesapi.model;
+package com.redegal.pricesapi.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table
-public class Brand {
-
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,13 +12,12 @@ public class Brand {
     @Column(nullable = false)
     private String name;
 
-
-    public Brand(Long id, String name) {
+    public Product(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Brand() {
+    public Product() {
 
     }
 

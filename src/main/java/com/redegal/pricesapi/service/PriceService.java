@@ -1,5 +1,6 @@
-package com.regegal.pricesapi.service;
-import com.regegal.pricesapi.model.Price;
+package com.redegal.pricesapi.service;
+import com.redegal.pricesapi.model.Price;
+
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.regegal.pricesapi.service;
+package com.redegal.pricesapi.service;
 
-import com.regegal.pricesapi.model.Price;
-import com.regegal.pricesapi.repository.PriceRepository;
+import com.redegal.pricesapi.repository.PriceRepository;
+import com.redegal.pricesapi.model.Price;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

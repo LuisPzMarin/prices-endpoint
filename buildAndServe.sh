@@ -8,28 +8,35 @@
 #Inicializa variables
 build=false;
 serve=false;
+test="-DskipTests";
 
 #Muestra ayuda
 help() { echo "Ayuda: Script para compilar y servir proyectos en java, utilizando Docker
 Opciones:
-  -b       Compila el proyecto usando mvn clean package
-  -s       Sirve el proyecto usando la configuración de los ficheros docker del prouyecto
-  -noargs  Compila y sirve el proyecto" 1>&2; exit 1; }
+  -b       Compila el proyecto usando mvn clean package --skipTest
+  -s       Sirve el proyecto usando la configuración de los ficheros docker del proyecto
+  -t       Se ejecutan los test junto a la compilación
+  -noargs  Compila y sirve el proyecto, sin ejecutar los test" 1>&2; exit 1; }
 
 
 #Revisa parametros y los parsea
 if [ $# -eq 0 ]; then
   build=true;
   serve=true;
+  test="-DskipTests";
 else
 
-  while getopts "bs" o; do
+  while getopts "bst" o; do
       case "$o" in
           b)
               build=true;
               ;;
           s)
               serve=true;
+              ;;
+          t)
+              test="";
+              build=true;
               ;;
           *)
               help
@@ -39,6 +46,7 @@ else
   shift $((OPTIND-1))
 fi
 
+
 #Compila el proyecto
 if $build ; then
   echo "Compila con Maven 3.6.0"
@@ -47,7 +55,7 @@ if $build ; then
          -v "$(pwd)":/opt/maven \
          -w /opt/maven \
          maven:3.6.0-jdk-11-slim\
-         mvn clean package -DskipTests
+         mvn clean package
 fi
 
 #Sirve el proyecto
