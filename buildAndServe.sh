@@ -49,12 +49,12 @@ fi
 
 #Compila el proyecto
 if $build ; then
-  echo "Compila con Maven 3.6.0"
+  echo "Compila con Maven 3.8.7 con OpenJDK 18"
   docker run -it --rm \
          -v $HOME/.m2/repository:/root/.m2/repository \
          -v "$(pwd)":/opt/maven \
          -w /opt/maven \
-         maven:3.6.0-jdk-11-slim\
+         maven:3.8.7-openjdk-18\
          mvn clean package
 fi
 
