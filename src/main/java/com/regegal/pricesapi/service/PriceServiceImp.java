@@ -40,7 +40,7 @@ public class PriceServiceImp implements PriceService{
     }
 
     @Override
-    public List<Price> consultPrice(LocalDateTime date, Long productId, Long brandId){
+    public List<Price> findRate(LocalDateTime date, Long productId, Long brandId){
         return priceRepository.consultPrice(date, productId, brandId);
     }
 }

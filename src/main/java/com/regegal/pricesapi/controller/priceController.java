@@ -1,4 +1,6 @@
 package com.regegal.pricesapi.controller;
+import com.regegal.pricesapi.controller.request.rateRequest;
+import com.regegal.pricesapi.controller.response.rateResponse;
 import com.regegal.pricesapi.model.Price;
 import com.regegal.pricesapi.service.PriceService;
 import lombok.RequiredArgsConstructor;
@@ -41,46 +43,27 @@ public class priceController {
         }
     }
 
-    @PostMapping("/consult")
-    public ResponseEntity consultPrice(@RequestBody Consult json) throws Exception {
+    @PostMapping("/rate")
+    public ResponseEntity findRate(@RequestBody rateRequest json) throws Exception {
 
         try {
             //Se parsea la fecha con el formato del enunciado
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH.mm.ss");
             LocalDateTime timestamp = LocalDateTime.parse(json.getDate(), formatter);
-            List <Price> Lprice= priceService.consultPrice(timestamp , json.getProductId(), json.getBrandId());
+            List <Price> Lprice= priceService.findRate(timestamp , json.getProductId(), json.getBrandId());
 
             //Se revisa si la consulta no trajo resultados
             if(Lprice.isEmpty()){
                 return new ResponseEntity(HttpStatus.NOT_FOUND);
             }else{
-                return new ResponseEntity(Lprice.get(0), HttpStatus.OK);
+                Price rate = Lprice.remove(0);
+                return new ResponseEntity(new rateResponse(rate.getPrice(), rate.getBrandId(), rate.getProductId(),
+                        timestamp, rate.getEndDate(), rate.getPriceList()), HttpStatus.OK);
             }
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
 
-    }
-
-    //Se crea el objeto consulta para parsear el body recibido
-    public static class Consult {
-        private String date;
-        private Long productId;
-        private Long brandId;
-
-        public Consult(){};
-
-        public String getDate(){
-            return date;
-        }
-
-        public Long getBrandId() {
-            return brandId;
-        }
-
-        public Long getProductId() {
-            return productId;
-        }
     }
 
 

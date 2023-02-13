@@ -12,5 +12,5 @@ public interface PriceService {
     boolean deletePrice(Long id);
 
     /** Servicio usado en el ejercicio**/
-    List<Price> consultPrice(LocalDateTime date, Long idProduct, Long idBrand);
+    List<Price> findRate(LocalDateTime date, Long idProduct, Long idBrand);
 }
