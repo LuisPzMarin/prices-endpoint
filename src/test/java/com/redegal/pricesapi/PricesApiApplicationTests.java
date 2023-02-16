@@ -3,7 +3,6 @@ package com.redegal.pricesapi;
 import com.redegal.pricesapi.controller.PriceController;
 import com.redegal.pricesapi.controller.request.RateRequest;
 import com.redegal.pricesapi.controller.response.RateResponse;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvFileSource;

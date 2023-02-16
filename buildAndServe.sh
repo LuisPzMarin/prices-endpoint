@@ -55,7 +55,7 @@ if $build ; then
          -v "$(pwd)":/opt/maven \
          -w /opt/maven \
          maven:3.8.7-openjdk-18\
-         mvn clean package
+         mvn clean package $test
 fi
 
 #Sirve el proyecto
